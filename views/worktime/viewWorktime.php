@@ -8,13 +8,13 @@ use yii\widgets\DetailView;
  * @var vendor\dinhtrung\isms\models\Worktime $model
  */
 
-$this->title = $model->id;
+$this->title = $model->start . ' - ' . $model->end;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('isms', 'Worktimes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="worktime-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><small><?= \Yii::t('isms', 'Work Time') ?>:</small> <?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('isms', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'start',
             'end',
         ],

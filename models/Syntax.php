@@ -35,7 +35,7 @@ class Syntax extends \yii\db\ActiveRecord
             [['fid', 'type'], 'required'],
             [['fid', 'type'], 'integer'],
             [['syntax'], 'string', 'max' => 255],
-            ['syntax', 'unique', 'targetAttribute' => ['type', 'fid', 'syntax']],
+            ['syntax', 'unique', 'targetAttribute' => ['fid', 'syntax']],
         ];
     }
 

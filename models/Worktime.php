@@ -24,7 +24,7 @@ class Worktime extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'worktime';
+        return '{{%worktime}}';
     }
 
     /**
@@ -64,5 +64,11 @@ class Worktime extends \yii\db\ActiveRecord
     public function getCs()
     {
         return $this->hasMany(Campaign::className(), ['id' => 'cid'])->viaTable('cpworktime', ['tid' => 'id']);
+    }
+
+    public static function options($i = NULL) {
+    	$res = [];
+    	foreach (self::find()->all() as $i) $res[$i->id] = $i->start . ' - ' . $i->end;
+    	return $res;
     }
 }
