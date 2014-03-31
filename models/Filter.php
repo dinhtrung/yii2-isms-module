@@ -89,4 +89,11 @@ class Filter extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Syntax::className(), ['fid' => 'id']);
     }
+
+    public function getBlacklist(){
+    	return $this->hasMany(Blacklist::className(), ['fid' => 'id']);
+    }
+    public function getWhitelist(){
+    	return $this->hasMany(Whitelist::className(), ['fid' => 'id']);
+    }
 }

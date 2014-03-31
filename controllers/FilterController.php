@@ -10,6 +10,8 @@ use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;
 use vendor\dinhtrung\isms\models\Syntax;
 use vendor\dinhtrung\isms\models\Cpfilter;
+use vendor\dinhtrung\isms\models\BlacklistSearch;
+use vendor\dinhtrung\isms\models\WhitelistSearch;
 
 /**
  * FilterController implements the CRUD actions for Filter model.
@@ -50,8 +52,20 @@ class FilterController extends Controller
      */
     public function actionView($id)
     {
+    	$model = $this->findModel($id);
+    	$searchModel = [
+    		'blacklist' => new BlacklistSearch(),
+    		'whitelist' => new WhitelistSearch(),
+    	];
+    	$dataProvider = [
+    		'blacklist' => $searchModel['blacklist']->search(array_merge_recursive(Yii::$app->request->getQueryParams(), ['fid' => $model->id])),
+    		'whitelist' => $searchModel['whitelist']->search(array_merge_recursive(Yii::$app->request->getQueryParams(), ['fid' => $model->id])),
+    	];
+
         return $this->render('viewFilter', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+        	'searchModel' => $searchModel,
+        	'dataProvider' => $dataProvider,
         ]);
     }
 
