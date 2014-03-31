@@ -23,7 +23,7 @@ class Syntax extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'syntax';
+        return '{{%syntax}}';
     }
 
     /**
@@ -34,7 +34,8 @@ class Syntax extends \yii\db\ActiveRecord
         return [
             [['fid', 'type'], 'required'],
             [['fid', 'type'], 'integer'],
-            [['syntax'], 'string', 'max' => 255]
+            [['syntax'], 'string', 'max' => 255],
+            ['syntax', 'unique', 'targetAttribute' => ['type', 'fid', 'syntax']],
         ];
     }
 
@@ -56,5 +57,18 @@ class Syntax extends \yii\db\ActiveRecord
     public function getF()
     {
         return $this->hasOne(Filter::className(), ['id' => 'fid']);
+    }
+
+    const TYPE_BLACKLIST = 0;
+    const TYPE_WHITELIST = 1;
+
+    public static function typeOptions($param = NULL) {
+    	$options = [
+    			self::TYPE_BLACKLIST	=>	Yii::t('isms', "Blacklist"),
+    			self::TYPE_WHITELIST		=>	Yii::t('isms', "Whitelist"),
+    	];
+    	if (is_null($param)) return $options;
+    	elseif (array_key_exists((string) $param, $options)) return $options[(string) $param];
+    	else return NULL;
     }
 }
