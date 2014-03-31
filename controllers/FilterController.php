@@ -8,6 +8,8 @@ use vendor\dinhtrung\isms\models\FilterSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;
+use vendor\dinhtrung\isms\models\Syntax;
+use vendor\dinhtrung\isms\models\Cpfilter;
 
 /**
  * FilterController implements the CRUD actions for Filter model.
@@ -63,6 +65,22 @@ class FilterController extends Controller
         $model = new Filter;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        	// Post-processing syntaxes
+        	foreach (explode("\n", $model->accept_syntax) as $item){
+        		$syntax = new Syntax();
+        		$syntax->fid = $model->id;
+        		$syntax->syntax = trim($item);
+        		$syntax->type = Syntax::TYPE_WHITELIST;
+        		$syntax->save();
+        	}
+        	foreach (explode("\n", $model->refuse_syntax) as $item){
+        		$syntax = new Syntax();
+        		$syntax->fid = $model->id;
+        		$syntax->syntax = trim($item);
+        		$syntax->type = Syntax::TYPE_BLACKLIST;
+        		$syntax->save();
+
+        	}
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('createFilter', [
@@ -80,10 +98,48 @@ class FilterController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $refuse_syntax = $accept_syntax = [];
+        foreach ($model->getSyntax()->all() as $s){
+        	if ($s->type == Syntax::TYPE_WHITELIST) $accept_syntax[] = $s->syntax;
+        	elseif ($s->type == Syntax::TYPE_BLACKLIST) $refuse_syntax[] = $s->syntax;
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        	// Accept Syntax
+        	$newSyntax = [];
+        	foreach (explode("\n", $model->accept_syntax) as $item){
+        		$newSyntax[] = trim($item);
+        	}
+        	$remove = array_diff($accept_syntax, $newSyntax);
+        	$add = array_diff($newSyntax, $accept_syntax);
+        	if (count($remove)) Syntax::deleteAll(['and', ['fid' => $model->id], ['in', 'syntax', $remove]]);
+        	foreach ($add as $s){
+        		$syntax = new Syntax();
+        		$syntax->fid = $model->id;
+        		$syntax->syntax = trim($item);
+        		$syntax->type = Syntax::TYPE_WHITELIST;
+        		if (! $syntax->save()) Yii::trace(json_encode($syntax->errors));
+        	}
+        	// Refuse Syntax
+        	$newSyntax = [];
+        	foreach (explode("\n", $model->refuse_syntax) as $item){
+        		$newSyntax[] = trim($item);
+        	}
+        	$remove = array_diff($refuse_syntax, $newSyntax);
+        	$add = array_diff($newSyntax, $refuse_syntax);
+        	if (count($remove)) Syntax::deleteAll(['and', ['fid' => $model->id], ['in', 'syntax', $remove]]);
+        	Syntax::deleteAll(['in', 'syntax', $remove]);
+        	foreach ($add as $s){
+        		$syntax = new Syntax();
+        		$syntax->fid = $model->id;
+        		$syntax->syntax = trim($item);
+        		$syntax->type = Syntax::TYPE_BLACKLIST;
+        		if (! $syntax->save()) Yii::trace(json_encode($syntax->errors));
+        	}
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+        	$model->accept_syntax = implode("\n", $accept_syntax);
+        	$model->refuse_syntax = implode("\n", $refuse_syntax);
             return $this->render('updateFilter', [
                 'model' => $model,
             ]);
@@ -98,8 +154,11 @@ class FilterController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        // Delete all related syntax
+        Syntax::deleteAll(['fid' => $model->id]);
+        Cpfilter::deleteAll(['fid' => $model->id]);
+        $model->delete();
         return $this->redirect(['index']);
     }
 

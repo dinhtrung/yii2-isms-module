@@ -25,12 +25,14 @@ use Yii;
  */
 class Filter extends \yii\db\ActiveRecord
 {
+	public $accept_syntax;
+	public $refuse_syntax;
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'filter';
+        return '{{%filter}}';
     }
 
     public static function getDb(){
@@ -46,7 +48,8 @@ class Filter extends \yii\db\ActiveRecord
             [['ftpblack', 'ftpwhite'], 'integer'],
             [['title'], 'string', 'max' => 20],
             [['reply_refuse', 'reply_accept', 'reply_false_syntax', 'description', 'reply_accept_dup', 'reply_refuse_dup'], 'string', 'max' => 256],
-            [['ftpblackfile', 'ftpwhitefile'], 'string', 'max' => 255]
+            [['ftpblackfile', 'ftpwhitefile'], 'string', 'max' => 255],
+            [['accept_syntax', 'refuse_syntax'], 'string'],
         ];
     }
 
