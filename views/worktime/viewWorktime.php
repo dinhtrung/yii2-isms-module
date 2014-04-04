@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Worktime $model
+ * @var dinhtrung\isms\models\Worktime $model
  */
 
 $this->title = $model->start . ' - ' . $model->end;

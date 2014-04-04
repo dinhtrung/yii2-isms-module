@@ -5,7 +5,7 @@ use kartik\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Blacklist $model
+ * @var dinhtrung\isms\models\Blacklist $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

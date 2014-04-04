@@ -1,14 +1,14 @@
 <?php
 
-namespace vendor\dinhtrung\isms\models;
+namespace dinhtrung\isms\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use vendor\dinhtrung\isms\models\Whitelist;
+use dinhtrung\isms\models\Whitelist;
 
 /**
- * WhitelistSearch represents the model behind the search form about `vendor\dinhtrung\isms\models\Whitelist`.
+ * WhitelistSearch represents the model behind the search form about `dinhtrung\isms\models\Whitelist`.
  */
 class WhitelistSearch extends Model
 {

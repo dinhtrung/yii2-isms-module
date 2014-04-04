@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use yii\web\Controller;
 

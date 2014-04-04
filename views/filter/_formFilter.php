@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use kartik\widgets\ActiveForm;
-use vendor\dinhtrung\isms\models\Ftpsetting;
+use dinhtrung\isms\models\Ftpsetting;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Filter $model
+ * @var dinhtrung\isms\models\Filter $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

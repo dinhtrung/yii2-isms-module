@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\Mailbox;
-use vendor\dinhtrung\isms\models\MailboxSearch;
+use dinhtrung\isms\models\Mailbox;
+use dinhtrung\isms\models\MailboxSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;

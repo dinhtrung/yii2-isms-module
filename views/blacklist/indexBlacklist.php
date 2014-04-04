@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var vendor\dinhtrung\isms\models\BlacklistSearch $searchModel
+ * @var dinhtrung\isms\models\BlacklistSearch $searchModel
  */
 
 $this->title = Yii::t('isms', 'Blacklists');

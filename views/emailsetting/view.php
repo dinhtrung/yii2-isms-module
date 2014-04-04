@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Emailsetting $model
+ * @var dinhtrung\isms\models\Emailsetting $model
  */
 
 $this->title = $model->id;

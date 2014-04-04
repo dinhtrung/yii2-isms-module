@@ -6,7 +6,7 @@ use yii\grid\GridView;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Filter $model
+ * @var dinhtrung\isms\models\Filter $model
  */
 
 $this->title = $model->title;

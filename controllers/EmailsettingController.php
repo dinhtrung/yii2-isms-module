@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\Emailsetting;
-use vendor\dinhtrung\isms\models\EmailsettingSearch;
+use dinhtrung\isms\models\Emailsetting;
+use dinhtrung\isms\models\EmailsettingSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;

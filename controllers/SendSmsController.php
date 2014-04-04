@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\SendSms;
-use vendor\dinhtrung\isms\models\SendSmsSearch;
+use dinhtrung\isms\models\SendSms;
+use dinhtrung\isms\models\SendSmsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;

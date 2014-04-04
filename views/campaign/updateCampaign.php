@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Campaign $model
+ * @var dinhtrung\isms\models\Campaign $model
  */
 
 $this->title = Yii::t('isms', 'Update {modelClass}: ', [

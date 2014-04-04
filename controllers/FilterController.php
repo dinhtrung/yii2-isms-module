@@ -1,17 +1,17 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\Filter;
-use vendor\dinhtrung\isms\models\FilterSearch;
+use dinhtrung\isms\models\Filter;
+use dinhtrung\isms\models\FilterSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;
-use vendor\dinhtrung\isms\models\Syntax;
-use vendor\dinhtrung\isms\models\Cpfilter;
-use vendor\dinhtrung\isms\models\BlacklistSearch;
-use vendor\dinhtrung\isms\models\WhitelistSearch;
+use dinhtrung\isms\models\Syntax;
+use dinhtrung\isms\models\Cpfilter;
+use dinhtrung\isms\models\BlacklistSearch;
+use dinhtrung\isms\models\WhitelistSearch;
 
 /**
  * FilterController implements the CRUD actions for Filter model.

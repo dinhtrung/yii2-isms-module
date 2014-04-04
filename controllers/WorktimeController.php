@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\Worktime;
-use vendor\dinhtrung\isms\models\WorktimeSearch;
+use dinhtrung\isms\models\Worktime;
+use dinhtrung\isms\models\WorktimeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;

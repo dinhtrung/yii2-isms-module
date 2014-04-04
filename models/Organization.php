@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor\dinhtrung\isms\models;
+namespace dinhtrung\isms\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;

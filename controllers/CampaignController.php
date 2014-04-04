@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\Campaign;
-use vendor\dinhtrung\isms\models\CampaignSearch;
+use dinhtrung\isms\models\Campaign;
+use dinhtrung\isms\models\CampaignSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;

@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\FtpsettingSearch $model
+ * @var dinhtrung\isms\models\FtpsettingSearch $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Mailbox $model
+ * @var dinhtrung\isms\models\Mailbox $model
  */
 
 $this->title = Yii::t('isms', 'Create {modelClass}', [

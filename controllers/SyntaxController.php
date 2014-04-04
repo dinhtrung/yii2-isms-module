@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\Syntax;
-use vendor\dinhtrung\isms\models\SyntaxSearch;
+use dinhtrung\isms\models\Syntax;
+use dinhtrung\isms\models\SyntaxSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;

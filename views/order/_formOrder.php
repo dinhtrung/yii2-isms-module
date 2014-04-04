@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 use kartik\widgets\ActiveForm;
 use kartik\widgets\DatePicker;
-use vendor\dinhtrung\isms\models\Order;
+use dinhtrung\isms\models\Order;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Order $model
+ * @var dinhtrung\isms\models\Order $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

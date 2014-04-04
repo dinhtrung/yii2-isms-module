@@ -1,14 +1,14 @@
 <?php
 
-namespace vendor\dinhtrung\isms\models;
+namespace dinhtrung\isms\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use vendor\dinhtrung\isms\models\Syntax;
+use dinhtrung\isms\models\Syntax;
 
 /**
- * SyntaxSearch represents the model behind the search form about `vendor\dinhtrung\isms\models\Syntax`.
+ * SyntaxSearch represents the model behind the search form about `dinhtrung\isms\models\Syntax`.
  */
 class SyntaxSearch extends Model
 {

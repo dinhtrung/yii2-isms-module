@@ -1,10 +1,10 @@
 <?php
 
-namespace vendor\dinhtrung\isms\controllers;
+namespace dinhtrung\isms\controllers;
 
 use Yii;
-use vendor\dinhtrung\isms\models\Blacklist;
-use vendor\dinhtrung\isms\models\BlacklistSearch;
+use dinhtrung\isms\models\Blacklist;
+use dinhtrung\isms\models\BlacklistSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;

@@ -3,17 +3,17 @@
 use yii\helpers\Html;
 use kartik\widgets\ActiveForm;
 use yii\bootstrap\Tabs;
-use vendor\dinhtrung\isms\models\Worktime;
+use dinhtrung\isms\models\Worktime;
 use kartik\widgets\Select2;
 use kartik\widgets\DatePicker;
 use kartik\widgets\DateTimePicker;
-use vendor\dinhtrung\isms\models\Campaign;
+use dinhtrung\isms\models\Campaign;
 use kartik\widgets\FileInput;
-use vendor\dinhtrung\isms\models\Organization;
+use dinhtrung\isms\models\Organization;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Campaign $model
+ * @var dinhtrung\isms\models\Campaign $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

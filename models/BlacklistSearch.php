@@ -1,14 +1,14 @@
 <?php
 
-namespace vendor\dinhtrung\isms\models;
+namespace dinhtrung\isms\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use vendor\dinhtrung\isms\models\Blacklist;
+use dinhtrung\isms\models\Blacklist;
 
 /**
- * BlacklistSearch represents the model behind the search form about `vendor\dinhtrung\isms\models\Blacklist`.
+ * BlacklistSearch represents the model behind the search form about `dinhtrung\isms\models\Blacklist`.
  */
 class BlacklistSearch extends Model
 {

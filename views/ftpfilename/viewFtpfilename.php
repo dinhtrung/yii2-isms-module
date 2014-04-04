@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var vendor\dinhtrung\isms\models\Ftpfilename $model
+ * @var dinhtrung\isms\models\Ftpfilename $model
  */
 
 $this->title = $model->cid;

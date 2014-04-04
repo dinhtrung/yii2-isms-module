@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use vendor\dinhtrung\isms\models\Order;
+use dinhtrung\isms\models\Order;
 
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var vendor\dinhtrung\isms\models\OrderSearch $searchModel
+ * @var dinhtrung\isms\models\OrderSearch $searchModel
  */
 
 $this->title = Yii::t('isms', 'Orders');
