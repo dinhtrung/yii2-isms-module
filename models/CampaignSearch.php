@@ -53,6 +53,10 @@ class CampaignSearch extends Model
     public $orderid;
     public $exported;
 
+    // Additional attributes used for searching
+    public $states;						// Search based on `status`,`finished`,`approved`,`active`,`ready`
+    public $titleDescTemplate;	// Search based on `title`,`description`,`template`
+
     public function rules()
     {
         return [

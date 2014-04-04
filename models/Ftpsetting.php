@@ -56,4 +56,10 @@ class Ftpsetting extends \yii\db\ActiveRecord
             'path' => Yii::t('isms', 'Path'),
         ];
     }
+    /**
+     * Return the option list suitable for dropDownList
+     */
+    public static function options($q = NULL){
+      return \yii\helpers\ArrayHelper::map(self::find()->where($q)->all(), 'id', 'title');
+    }
 }

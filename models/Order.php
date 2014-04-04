@@ -27,7 +27,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'smsorder';
+        return '{{%smsorder}}';
     }
 
     /**
@@ -61,4 +61,18 @@ class Order extends \yii\db\ActiveRecord
             'smscount' => Yii::t('isms', 'Smscount'),
         ];
     }
+
+    const STATUS_TRUE = 1;
+    const STATUS_FALSE = 0;
+    const STATUS_OUTDATE = -1;
+    public static function statusOptions($i = NULL) {
+        	$options = [
+    			self::STATUS_TRUE		=>	\Yii::t('app', 'Valid Order'),
+    			self::STATUS_FALSE		=>	\Yii::t('app', 'Invalid Order'),
+    			self::STATUS_OUTDATE		=>	\Yii::t('app', 'Outdate Order'),
+        	];
+        	if (is_null($i)) return $options;
+        	elseif (array_key_exists($i, $options)) return $options[$i];
+        	else return $i;
+        }
 }

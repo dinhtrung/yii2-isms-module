@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use vendor\dinhtrung\isms\models\Order;
 
 /**
  * @var yii\web\View $this

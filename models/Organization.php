@@ -3,6 +3,7 @@
 namespace vendor\dinhtrung\isms\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "organization".
@@ -22,7 +23,10 @@ class Organization extends \yii\db\ActiveRecord
     }
 
     public static function getDb(){
-    	return \Yii::$app->ismsDb;
+    	if (\Yii::$app->has('ismsDb') && \Yii::$app->ismsDb instanceof \yii\db\Connection)
+    		return \Yii::$app->ismsDb;
+    	else
+    		return \Yii::$app->db;
     }
 
     /**
@@ -47,5 +51,12 @@ class Organization extends \yii\db\ActiveRecord
             'title' => Yii::t('isms', 'Title'),
             'description' => Yii::t('isms', 'Description'),
         ];
+    }
+
+    /**
+     * Return the option list suitable for dropDownList
+     */
+    public static function options($q = NULL){
+      return ArrayHelper::map(self::find()->where($q)->all(), 'id', 'title');
     }
 }
